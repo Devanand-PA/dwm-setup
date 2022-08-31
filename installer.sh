@@ -1,6 +1,6 @@
 #!/bin/sh
-sudo pacman -S gcc make libxinerama libxft fontconfig xorg-xinit pcmanfm vim links sxiv mpv yt-dlp
-sudo apt install gcc make libxinerama-dev libxft-dev xinit pcmanfm vim links sxiv mpv
+sudo pacman -S gcc make libxinerama libxft fontconfig xorg-xinit pcmanfm vim links sxiv mpv yt-dlp fzf curl wget base-devel
+sudo apt install gcc make libxinerama-dev libxft-dev xinit pcmanfm vim links sxiv mpv fzf curl wget
 
 cd dwm
 sudo make clean install
