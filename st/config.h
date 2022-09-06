@@ -101,7 +101,7 @@ static const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
 	"red3",
-	"green3",
+	"#009900",
 	"yellow3",
 	"blue2",
 	"magenta3",
@@ -144,7 +144,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 6;
 
 /*
  * Default columns and rows numbers
