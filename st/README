@@ -1,6 +1,10 @@
 st - simple terminal
 --------------------
 st is a simple terminal emulator for X which sucks less.
+pathces
+-all ring buffer & mouse scrollback
+-alpha patch
+-anysize
 
 
 Requirements
