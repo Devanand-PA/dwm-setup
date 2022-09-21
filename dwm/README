@@ -18,6 +18,8 @@ necessary as root):
 
     make clean install
 
+patches
+dwm-pertag-20200914-61bb8b2.diff
 
 Running dwm
 -----------
