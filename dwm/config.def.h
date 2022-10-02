@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -9,8 +9,8 @@ static const char *fonts[]          = { "monospace:size=14"};
 static const char dmenufont[]       = "monospace:size=14";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { "#ffffff", "#111111", "#111111" },
-	[SchemeSel]  = { "#000000", "#aa4444",  "#111111"  },
+	[SchemeNorm] = { "#ffffff", "#111111", "#000000" },
+	[SchemeSel]  = { "#000000", "#aa4444",  "#000000"  },
 };
 
 /* tagging */
@@ -23,7 +23,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Dummy2",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -54,13 +54,18 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#111111", "-nf", "#ffffff", "-sb", "#aa4444", "-sf", "#000000", NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *WebBrowser[] = { "chromium", NULL };
-
-static const char *FileBrowser[] = { "pcmanfm", NULL };
+static const char *browser[]  = { "firefox", NULL };
+static const char *ibrowser[]  = { "chromium", NULL };
+static const char *searchfunction[]  = { "sc", NULL };
+static const char *incbrightness[] = {"backlightincrease", NULL  };
+static const char *decbrightness[] = {"backlightdecrease", NULL  };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_v,      spawn,          {.v = ibrowser } },
+	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browser } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = searchfunction } },
 	{ MODKEY|ShiftMask,		XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -70,9 +75,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
+	{ MODKEY,                       XK_F3,     spawn,           {.v = incbrightness } },
+	{ MODKEY,                       XK_F2,     spawn,           {.v = decbrightness } },
 	{ MODKEY,	                XK_q,      killclient,     {0} },
-	{ MODKEY,			XK_v,	   spawn,	   {.v = FileBrowser } },
-	{ MODKEY,			XK_b,	   spawn,	   {.v = WebBrowser } },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
