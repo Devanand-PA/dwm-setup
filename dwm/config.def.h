@@ -57,8 +57,6 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browser[]  = { "firefox", NULL };
 static const char *ibrowser[]  = { "chromium", NULL };
 static const char *searchfunction[]  = { "sc", NULL };
-static const char *incbrightness[] = {"backlightincrease", NULL  };
-static const char *decbrightness[] = {"backlightdecrease", NULL  };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
@@ -75,8 +73,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_F3,     spawn,           {.v = incbrightness } },
-	{ MODKEY,                       XK_F2,     spawn,           {.v = decbrightness } },
 	{ MODKEY,	                XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
